@@ -1,3 +1,7 @@
+[B] 3.1.15 [/B]
+• modified media icons, narrower menu bar,
+• better widget space utilization, re added fanarts, clearlogos ,colored media icons.etc. 
+
 [B]3.0.6[/B]
 • Keyboard layout fixes
 • Fix for web-dl flag icon with movies have 'web' word in their names
