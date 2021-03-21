@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window type="dialog" id="1139">
+	<!--onload condition="String.Contains(Player.Art(thumb),ytimg)">RunScript(script.skin.helper.service,action=stripstring,splitchar=/,string=$INFO[Window(Home).Property(ThumbSplit1)],output=ThumbSplit2,index=0)</onload-->
 	<defaultcontrol always="true">1</defaultcontrol>
 	<include>OpenClose_FadeSlide_Right</include>
 	<controls>

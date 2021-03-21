@@ -154,41 +154,41 @@
 				<ondown>90001</ondown>
 				<pagecontrol>60</pagecontrol>
 				<control type="button" id="401">
-					<description>Choose shortcut</description>
+					<description>Parancsikon kiválasztása</description>
 					<include>DefaultSettingButton</include>
 					<label>$ADDON[script.skinshortcuts 32048]</label>
 					<label2>$INFO[Container(211).ListItem.Label]</label2>
 					<visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),libreelec)</visible>
 				</control>
 				<control type="button" id="307">
-					<description>Change action</description>
+					<description>Akció kiválasztása</description>
 					<include>DefaultSettingButton</include>
 					<label>$ADDON[script.skinshortcuts 32027]</label>
 					<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
 					<visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),libreelec)</visible>
 				</control>
 				<control type="button" id="305">
-					<description>Change label</description>
+					<description>Címke kiválasztás</description>
 					<include>DefaultSettingButton</include>
 					<label>$ADDON[script.skinshortcuts 32025]</label>
 					<label2>$INFO[Container(211).ListItem.Label]</label2>
 					<visible>!String.IsEqual(Container(211).ListItem.Property(defaultID),libreelec)</visible>
 				</control>
 				<control type="button" id="306">
-					<description>Browse for thumbnail</description>
+					<description>Bélyegkép kiválasztás</description>
 					<include>DefaultSettingButton</include>
 					<label>$ADDON[script.skinshortcuts 32026]</label>
 					<label2>$INFO[Container(211).ListItem.Icon]</label2>
 				</control>
 				<control type="button" id="310">
-					<description>Browse for background</description>
+					<description>Háttér kiválasztása</description>
 					<include>DefaultSettingButton</include>
 					<label>$ADDON[script.skinshortcuts 32045]</label>
 					<label2>$VAR[Label_SkinSetting_Backgrounds]</label2>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
 				</control>
 				<control type="button" id="405">
-                   <description>Edit submenu</description>
+                   <description>Almenü szerkesztése</description>
                    <include>DefaultSettingButton</include>
                    <label>$LOCALIZE[40226]</label>
                    <visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
@@ -206,6 +206,14 @@
 					<label2>$VAR[passcode]</label2>
 					<include>DefaultSettingButton</include>
 					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+                </control>
+                <control type="button" id="994">	
+					<label>$LOCALIZE[40213]</label>
+					<include>DefaultSettingButton</include>
+					<onclick condition="!System.HasAddon(script.skin.helper.widgets)">InstallAddon(script.skin.helper.widgets)</onclick>
+					<onclick condition="System.HasAddon(script.skin.helper.widgets)">Addon.OpenSettings(script.skin.helper.widgets)</onclick>
+					<visible>String.IsEqual(Window.Property(groupname),mainmenu)</visible>
+					<visible>String.IsEqual(Container(211).ListItem.Property(widget),PersonalWidgetList) | String.IsEqual(Container(211).ListItem.Property(widget),PersonalWidgetPanel)</visible>
                 </control>
 				<control type="button" id="312">
 					<include>DefaultSettingButton</include>

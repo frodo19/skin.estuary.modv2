@@ -33,6 +33,7 @@
 		</control>
 		<control type="button" id="8000">
 			<onfocus condition="Skin.HasSetting(EnableSpashScreen)">ReplaceWindow($INFO[System.StartupWindow])</onfocus>
+			<!--onfocus condition="Skin.String(SplashScreen) + !Skin.HasSetting(EnableSpashScreen)">RunScript(script.skin.helper.service,action=splashscreen,file=$INFO[Skin.String(SplashScreen)],duration=5)</onfocus-->
 			<onfocus condition="!Skin.String(SplashScreen) + !Skin.HasSetting(EnableSpashScreen)">AlarmClock(GoHome,ReplaceWindow($INFO[System.StartupWindow]),00:01,silent,false)</onfocus>
 			<visible allowhiddenfocus="true">false</visible>
 		</control>

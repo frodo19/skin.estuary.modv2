@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-		<defaultcontrol always="true">8</defaultcontrol>
+	<defaultcontrol always="true">8</defaultcontrol>
 	<onload>SetProperty(infobackground,$ESCINFO[ListItem.Art(fanart)],home)</onload>
 	<onunload>ClearProperty(infobackground,home)</onunload>
 	<controls>
@@ -27,7 +27,7 @@
 					<top>0</top>
 					<width>300</width>
 					<height>427</height>
-					<aspectratio>keep</aspectratio>
+					<aspectratio>stretch</aspectratio>
 					<texture fallback="DefaultVideo.png">$VAR[InfoDialogPosterVar]</texture>
 					<visible>!String.IsEqual(ListItem.DBType,musicvideo)</visible>
 				</control>
@@ -39,7 +39,7 @@
 						<top>0</top>
 						<width>300</width>
 						<height>427</height>
-						<aspectratio>keep</aspectratio>
+						<aspectratio>stretch</aspectratio>
 						<texture colordiffuse="AAFFFFFF" fallback="DefaultVideo.png">colors/black.png</texture>
 					</control>
 					<control type="image">
@@ -271,6 +271,27 @@
 						<param name="id" value="10" />
 						<param name="icon" value="icons/infodialogs/artworkdownloader.png" />
 						<param name="label" value="$LOCALIZE[13511]" />
+						<!--param name="onclick_1" value="RunScript(script.artwork.beef, mode=gui, mediatype=movie, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_1" value="String.IsEqual(ListItem.DBType,movie)" />
+						<param name="onclick_2" value="RunScript(script.artwork.beef, mode=gui, mediatype=tvshow, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_2" value="String.IsEqual(ListItem.DBType,tvshow)" />
+						<param name="onclick_3" value="RunScript(script.artwork.beef, mode=gui, mediatype=musicvideo, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_3" value="String.IsEqual(ListItem.DBType,musicvideo)" />
+						<param name="onclick_4" value="RunScript(script.artwork.beef, mode=gui, mediatype=episode, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_4" value="String.IsEqual(ListItem.DBType,episode)" />
+					</include>
+					<include content="InfoDialogSmallButton" condition="System.HasAddon(script.artwork.beef) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode) | String.IsEqual(ListItem.DBType,musicvideo)]">
+						<param name="id" value="104" />
+						<param name="icon" value="icons/infodialogs/download.png" />
+						<param name="label" value="$LOCALIZE[40239]" />
+						<param name="onclick_1" value="RunScript(script.artwork.beef, mediatype=movie, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_1" value="String.IsEqual(ListItem.DBType,movie)" />
+						<param name="onclick_2" value="RunScript(script.artwork.beef, mediatype=tvshow, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_2" value="String.IsEqual(ListItem.DBType,tvshow)" />
+						<param name="onclick_3" value="RunScript(script.artwork.beef, mediatype=musicvideo, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_3" value="String.IsEqual(ListItem.DBType,musicvideo)" />
+						<param name="onclick_4" value="RunScript(script.artwork.beef, mediatype=episode, dbid=$INFO[ListItem.DBID])" />
+						<param name="condition_4" value="String.IsEqual(ListItem.DBType,episode)" /-->
 					</include>
 					<include content="InfoDialogSmallButton">
 						<param name="id" value="6" />
@@ -513,6 +534,34 @@
 				<param name="onfocus" value="SetFocus(9004)"/>
 				<param name="visible" value="!Skin.HasSetting(VideoInfo_TVShowsCastList)"/>
 			</include>
+			<!--<include content="WidgetListCastPlayerInfo" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,movie) + System.HasAddon(script.skin.helper.service)">
+				<param name="content_path" value="plugin://script.skin.helper.service/?action=getcast&amp;movie=$INFO[ListItem.Title]&amp;castaction=extendedinfo"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="5100"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_MovieCastList)"/>
+			</include>
+			<include content="WidgetListCastPlayerInfo" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,tvshow) + System.HasAddon(script.skin.helper.service)">
+				<param name="content_path" value="plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.Title]&amp;castaction=extendedinfo"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="5200"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_TVShowsCastList)"/>
+			</include>
+			<include content="WidgetListCastPlayerInfo" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,season) + System.HasAddon(script.skin.helper.service)">
+				<param name="content_path" value="plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.TvShowTitle]&amp;castaction=extendedinfo"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="5300"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_TVShowsCastList)"/>
+			</include>
+			<include content="WidgetListCastPlayerInfo" condition="String.IsEmpty(ListItem.DBID) + String.IsEqual(ListItem.DBTYPE,episode) + System.HasAddon(script.skin.helper.service)">
+				<param name="content_path" value="plugin://script.skin.helper.service/?action=getcast&amp;episode=$INFO[ListItem.Label]&amp;castaction=extendedinfo"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="5400"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_TVShowsCastList)"/>
+			</include>-->
 			<include content="WidgetListPosterInfo" condition="!String.IsEmpty(ListItem.Set)">
 				<param name="content_path" value="videodb://movies/sets/$INFO[ListItem.SetId]/"/>
 				<param name="onclick" value="RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[ListItem.Label],imdb_id=$INFO[ListItem.IMDBNumber])"/>
@@ -523,6 +572,34 @@
 				<param name="list_id" value="5500"/>
 				<param name="visible" value="!Skin.HasSetting(VideoInfo_MoviesFromMovieSet)"/>
 			</include>
+			<!--<include content="WidgetListPosterInfo" condition="String.IsEqual(ListItem.DBType,movie)">
+				<param name="content_path" value="plugin://script.extendedinfo?info=personmovies&amp;&amp;person=$INFO[ListItem.Director]"/>
+				<param name="onclick" value="RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[ListItem.Label],imdb_id=$INFO[ListItem.IMDBNumber])"/>
+				<param name="sortby" value="year"/>
+				<param name="sortorder" value="descending"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="5600"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_DirectorMovies)"/>
+			</include>
+			<include content="WidgetListPosterInfo" condition="String.IsEqual(ListItem.DBType,movie)">
+				<param name="content_path" value="plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;imdbid=$INFO[ListItem.IMDBNumber]"/>
+				<param name="onclick" value="RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[ListItem.Label],imdb_id=$INFO[ListItem.IMDBNumber])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="5700"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_SimilarMovies)"/>
+			</include>
+			<include content="WidgetListPosterInfo" condition="String.IsEqual(ListItem.DBType,movie)">
+				<param name="content_path" value="plugin://script.extendedinfo?info=studio&amp;&amp;studio=$INFO[ListItem.Studio]"/>
+				<param name="onclick" value="RunScript(script.extendedinfo,info=extendedinfo,name=$INFO[ListItem.Label],imdb_id=$INFO[ListItem.IMDBNumber])"/>
+				<param name="sortby" value="year"/>
+				<param name="sortorder" value="descending"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="5800"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_StudioMovies)"/>
+			</include>-->
 			<include content="WidgetListThumbInfo" condition="!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,musicvideo)">
 				<param name="content_path" value="videodb://inprogresstvshows/$INFO[ListItem.DBID]/-2/?tvshowid=$INFO[ListItem.DBID]"/>
 				<param name="widget_target" value="videos"/>
@@ -535,6 +612,14 @@
 				<param name="onclick2" value="PlayMedia($ESCINFO[ListItem.FileNameAndPath])"/>
 				<param name="visible" value="!Skin.HasSetting(VideoInfo_NextUpEpisodes)"/>
 			</include>
+			<!--<include content="WidgetListPosterInfo" condition="!String.IsEqual(ListItem.DBType,movie) + !String.IsEqual(ListItem.DBType,musicvideo)">
+				<param name="content_path" value="plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=tvshows&amp;imdbid=$INFO[ListItem.IMDBNumber]"/>
+				<param name="onclick" value="RunScript(script.extendedinfo,info=extendedtvinfo,name=$INFO[ListItem.Label])"/>
+				<param name="widget_target" value="videos"/>
+				<param name="limit" value="100"/>
+				<param name="list_id" value="6000"/>
+				<param name="visible" value="!Skin.HasSetting(VideoInfo_SimilarTVShows)"/>
+			</include>-->
 			<include content="WidgetListThumbInfo" condition="String.IsEqual(ListItem.DBType,movie)">
 				<param name="content_path" value="$VAR[VideoInfoImagesVar]"/>
 				<param name="list_id" value="63000"/>

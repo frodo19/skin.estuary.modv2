@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<!--<onload condition="!Skin.HasSetting(FirstTimeRun2)">ActivateWindow(1136)</onload>-->
 	<onload>SetProperty(CurrentSkin,skin.estuary.modv2,home)</onload>
 	<onload>RunScript(script.skinshortcuts,type=buildxml&amp;mainmenuID=9000&amp;group=mainmenu)</onload>
 	<onload condition="Skin.HasSetting(Skin_EnableAnimatedPosters)">Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
@@ -28,7 +29,6 @@
 			<visible allowhiddenfocus="true">Control.HasFocus(20001)</visible>
 		</control>
 		<include>DefaultBackground</include>
-		<include>GlobalAnimatedBackground</include>
 		<control type="multiimage">
 			<depth>DepthBackground</depth>
 			<include>FullScreenDimensions</include>
@@ -41,7 +41,8 @@
 			<imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$VAR[HomeFanartVar]</imagepath>
 			<timeperimage>3000</timeperimage>
 			<randomize>true</randomize>
-			<visible>Skin.HasSetting(show_fanart) + Control.HasFocus(9000) + ![Player.HasVideo + !Skin.HasSetting(background_showvideo)]</visible>
+			<visible>!Skin.HasSetting(no_fanart)</visible>
+			<visible>![Player.HasVideo + !Skin.HasSetting(background_showvideo)]</visible>
 		</control>
 		<control type="multiimage">
 			<depth>DepthBackground</depth>
@@ -55,8 +56,8 @@
 			<imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$INFO[Skin.String(global-background)]</imagepath>
 			<timeperimage>3000</timeperimage>
 			<randomize>true</randomize>
-			<visible>[Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]</visible>
-			<visible>![Control.HasFocus(9000) + !String.IsEmpty(Container(9000).ListItem.Property(background))] + ![[[Control.HasFocus(9000) + !String.IsEmpty(Container(9000).ListItem.Property(background))] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + !String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + !String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + !String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]]]</visible>
+			<visible>[Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]</visible>
+			<visible>![Control.HasFocus(9000) + !String.IsEmpty(Container(9000).ListItem.Property(background))] + ![[[Control.HasFocus(9000) + !String.IsEmpty(Container(9000).ListItem.Property(background))] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + !String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + !String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + !String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]]]</visible>
 			<visible>![Player.HasVideo + !Skin.HasSetting(background_showvideo)]</visible>
 		</control>
 		<control type="multiimage">
@@ -71,7 +72,7 @@
 			<imagepath background="true" colordiffuse="$VAR[Background_Opacity]">$VAR[HomeFanartVar]</imagepath>
 			<timeperimage>3000</timeperimage>
 			<randomize>true</randomize>
-			<visible>[[Control.HasFocus(9000) + !String.IsEmpty(Container(9000).ListItem.Property(background))] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + !String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + !String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + !String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(show_fanart) + !String.IsEmpty(Skin.String(global-background))]]</visible>
+			<visible>[[Control.HasFocus(9000) + !String.IsEmpty(Container(9000).ListItem.Property(background))] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + !String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(804) + String.IsEmpty(Skin.String(power_background)) + !Skin.HasSetting(enable_power_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + !String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(802) + String.IsEmpty(Skin.String(settings_background)) + !Skin.HasSetting(enable_settings_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + !String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]] | [[Control.HasFocus(801) + String.IsEmpty(Skin.String(search_background)) + !Skin.HasSetting(enable_search_background)] + [Skin.HasSetting(no_fanart) + !String.IsEmpty(Skin.String(global-background))]]</visible>
 			<visible>![Player.HasVideo + !Skin.HasSetting(background_showvideo)]</visible>
 		</control>
 		<control type="image">
@@ -178,6 +179,7 @@
 							<param name="list_id" value="5400"/>
 						</include>
 						<include content="WidgetListGenres" condition="Library.HasContent(movies) + !Skin.HasSetting(hide_genremovies)">
+							<param name="content_path" value="plugin://script.skin.helper.widgets/?action=browsegenres&mediatype=movies&limit=1000"/>
 							<param name="widget_header" value="$LOCALIZE[135]"/>
 							<param name="widget_header_focus" value="$INFO[Container(5500).ListItem.Label, | ]"/>
 							<param name="widget_target" value="videos"/>
@@ -265,7 +267,7 @@
 							<param name="list_id" value="61001"/>
 						</include>
 						<include content="WidgetNextWatchEpisodes" condition="Library.HasContent(tvshows) + !Skin.HasSetting(hide_nextepisodes) + Skin.HasSetting(HomeBanner)">
-							<param name="content_path" value="plugin://script.embuary.helper?info=getnextup"/>
+							<param name="content_path" value="plugin://script.skin.helper.widgets/?action=next&mediatype=episodes&reload=$INFO[Window(Home).Property(widgetreload)]"/>
 							<param name="sortby" value=""/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[40012]"/>
@@ -274,7 +276,7 @@
 							<param name="list_id" value="6700"/>
 						</include>
 						<include content="WidgetNextWatchEpisodesBanner" condition="Library.HasContent(tvshows) + !Skin.HasSetting(hide_nextepisodes) + !Skin.HasSetting(HomeBanner)">
-							<param name="content_path" value="plugin://script.embuary.helper?info=getnextup"/>
+							<param name="content_path" value="plugin://script.skin.helper.widgets/?action=next&mediatype=episodes&reload=$INFO[Window(Home).Property(widgetreload)]"/>
 							<param name="sortby" value=""/>
 							<param name="sortorder" value="descending"/>
 							<param name="widget_header" value="$LOCALIZE[40012]"/>
@@ -298,8 +300,22 @@
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="6300"/>
 						</include>
+						<include content="WidgetNextAiringEpisodesPreconfigured" condition="Library.HasContent(tvshows) + !Skin.HasSetting(hide_nextairingepisodes) + Skin.HasSetting(HomeBanner)">
+							<param name="content_path" value="plugin://script.skin.helper.widgets/?action=nextaired&mediatype=episodes&reload=$INFO[Window(Home).Property(widgetreload2)]"/>
+							<param name="widget_header" value="$LOCALIZE[40107]"/>
+							<param name="widget_header_focus" value="$INFO[Container(6600).ListItem.TVShowTitle, | , - ]$INFO[Container(6600).ListItem.Season,,x]$INFO[Container(6600).ListItem.Episode,,. ]$INFO[Container(6600).ListItem.Title]$INFO[Container(6600).ListItem.Year, (,)]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="6600"/>
+						</include>
+						<include content="WidgetNextAiringEpisodesBannerPreconfigured" condition="Library.HasContent(tvshows) + !Skin.HasSetting(hide_nextairingepisodes) + !Skin.HasSetting(HomeBanner)">
+							<param name="content_path" value="plugin://script.skin.helper.widgets/?action=nextaired&mediatype=episodes&reload=$INFO[Window(Home).Property(widgetreload2)]"/>
+							<param name="widget_header" value="$LOCALIZE[40107]"/>
+							<param name="widget_header_focus" value="$INFO[Container(66001).ListItem.TVShowTitle, | , - ]$INFO[Container(66001).ListItem.Season,,x]$INFO[Container(66001).ListItem.Episode,,. ]$INFO[Container(66001).ListItem.Title]$INFO[Container(66001).ListItem.Year, (,)]"/>
+							<param name="widget_target" value="videos"/>
+							<param name="list_id" value="66001"/>
+						</include>
 						<include content="WidgetListGenres" condition="Library.HasContent(tvshows) + !Skin.HasSetting(hide_genretvshows)">
-							<param name="content_path" value="videodb://tvshows/genres/"/>
+							<param name="content_path" value="plugin://script.skin.helper.widgets/?action=browsegenres&mediatype=tvshows&limit=1000"/>
 							<param name="widget_header" value="$LOCALIZE[135]"/>
 							<param name="widget_header_focus" value="$INFO[Container(6400).ListItem.Label, | ]"/>
 							<param name="widget_target" value="videos"/>
@@ -732,24 +748,6 @@
 							<param name="label" value="$INFO[ListItem.ChannelName]"/>
 							<param name="label2" value="$INFO[ListItem.Title]$VAR[SeasonEpisodeLabel]"/>
 						</include>
-						<include content="WidgetListChannels" condition="System.HasPVRAddon + !Skin.HasSetting(hide_channelgroups)">
-							<param name="content_path" value="pvr://channels/tv"/>
-							<param name="widget_header" value="$LOCALIZE[40350]"/>
-							<param name="widget_header_focus" value="$INFO[Container(12600).ListItem.Label, | ]$INFO[Container(12600).ListItem.Label2, - ,]"/>
-							<param name="widget_target" value="tvguide"/>
-							<param name="list_id" value="12600"/>
-							<param name="item_limit" value="2000"/>
-						</include>
-						<include content="WidgetListOffers" condition="System.HasPVRAddon + System.HasAddon(script.service.gto) + !Skin.HasSetting(hide_gtowidget)">
-							<param name="content_path" value="plugin://script.service.gto/?action=getcontent&amp;ts=$INFO[Window(Home).Property(GTO.timestamp)]"/>
-							<param name="widget_header" value="$ADDON[script.service.gto 30104]: $INFO[Window(Home).Property(GTO.Provider)]"/>
-							<param name="widget_header_focus" value="$INFO[Container(12500).ListItem.Label, | ]$INFO[Container(12400).ListItem.Label2, - ,]"/>
-							<param name="list_id" value="12500"/>
-							<param name="item_limit" value="2000"/>
-    						<param name="label" value="$INFO[ListItem.label]"/>
-							<param name="label2" value="$INFO[ListItem.label2]$INFO[ListItem.Property(StartTime), (,)]"/>
-							<param name="onclick" value="RunPlugin(plugin://script.service.gto/?action=info&amp;item=$INFO[ListItem.Property(item)])"/>
-						</include>
 					</control>
 					<include content="ImageWidget" condition="!System.HasPVRAddon">
 						<param name="text_label" value="$LOCALIZE[31143]" />
@@ -917,7 +915,7 @@
 						<param name="visible" value="![String.IsEqual(Container(9000).ListItem.Property(ParentalControl),yes) + !String.IsEqual(Skin.String(mypassword),Skin.String(passcode))]" />
 					</include>
 					<control type="panel" id="14100">
-						<left>-10</left>
+						<left>-70</left>
 						<top>120</top>
 						<right>0</right>
 						<bottom>0</bottom>
@@ -932,19 +930,19 @@
 						<pagecontrol>14010</pagecontrol>
 						<visible>Integer.IsGreater(Container(14100).NumItems,0) | Container(14100).IsUpdating</visible>
 						<visible>![String.IsEqual(Container(9000).ListItem.Property(ParentalControl),yes) + !String.IsEqual(Skin.String(mypassword),Skin.String(passcode))]</visible>
-						<itemlayout width="340" height="410" condition="Skin.HasSetting(HideWidgetLabels)">
+						<itemlayout width="294" height="410" condition="Skin.HasSetting(HideWidgetLabels)">
 							<control type="group">
-								<left>70</left>
+								<left>0</left>
 								<include content="InfoWallMusicLayout">
 									<param name="fallback_image" value="DefaultFavourites.png" />
 									<param name="focused" value="false" />
 								</include>
 							</control>
 						</itemlayout>
-						<focusedlayout width="340" height="410" condition="Skin.HasSetting(HideWidgetLabels)">
+						<focusedlayout width="294" height="410" condition="Skin.HasSetting(HideWidgetLabels)">
 							<control type="group">
 								<depth>DepthContentPopout</depth>
-								<left>70</left>       					 
+								<left>0</left>       					 
 								<animation type="Focus" condition="!Skin.HasSetting(no_animations)" reversible="false">
             						<effect type="zoom" end="110" time="75" tween="sine" easing="out" center="auto" />
             						<effect type="zoom" end="91" time="225" tween="sine" delay="100" easing="out" center="auto" />
@@ -955,7 +953,7 @@
 								</include>
 							</control>
 						</focusedlayout>
-						<itemlayout width="340" height="340" condition="!Skin.HasSetting(HideWidgetLabels)">
+						<itemlayout width="316" height="316" condition="!Skin.HasSetting(HideWidgetLabels)">
 							<control type="group">
 								<left>70</left>
 								<include content="InfoWallMusicLayout">
@@ -964,7 +962,7 @@
 								</include>
 							</control>
 						</itemlayout>
-						<focusedlayout width="340" height="340" condition="!Skin.HasSetting(HideWidgetLabels)">
+						<focusedlayout width="360" height="320" condition="!Skin.HasSetting(HideWidgetLabels)">
 							<control type="group">
 								<depth>DepthContentPopout</depth>
 								<left>70</left>       					 
@@ -1031,7 +1029,7 @@
 						<pagecontrol>15010</pagecontrol>
 						<control type="group" id="16678">
 							<description>Weather info</description>
-							<left>60</left>
+							<left>0</left>
 							<right>-30</right>
 							<top>102</top>
 							<height>300</height>
@@ -1054,15 +1052,24 @@
 								<animation effect="slide" end="-460,0" time="0" condition="Skin.HasSetting(HideMainMenuWithWidgets)">conditional</animation>
 							</control>
 							<control type="label">
+					            <right>410</right>
+					            <top>86</top>
+					            <aligny>center</aligny>
+					            <height>24</height>
+					            <width>500</width>
+				            	<align>right</align>
+				            	<font>WeatherTemp</font>
+				            	<label>$INFO[Weather.Temperature]</label>
+			             	</control>
+							<control type="label">
 								<width>500</width>
-								<top>120</top>
+								<top>-65</top>
 								<aligny>center</aligny>
-								<height>24</height>
 								<right>100</right>
 								<align>right</align>
-								<font>font13</font>
-								<scroll>true</scroll>
-								<label>$INFO[Weather.Temperature]$INFO[Weather.Conditions, ∙ ,]</label>
+								<font>font30_title</font>
+								<label>[CR][I]$LOCALIZE[402] : $INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits][/I][CR]$INFO[Weather.Conditions]</label>
+								<visible>!String.StartsWith(Weather.Temperature,$LOCALIZE[503])</visible>
 								<animation effect="slide" end="-460,0" time="0" condition="Skin.HasSetting(HideMainMenuWithWidgets)">conditional</animation>
 							</control>
 							<control type="grouplist">
@@ -1909,12 +1916,12 @@
 				</control>
 			</control>
 			<control type="group">
-				<animation effect="slide" end="-522,0" time="300" tween="sine" easing="inout" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + !Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
+				<animation effect="slide" end="-400,0" time="300" tween="sine" easing="inout" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + !Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 				<animation effect="slide" end="-95,0" time="300" tween="sine" easing="inout" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 				<depth>DepthContentPanel</depth>
 				<include>OpenClose_Left</include>
 				<include content="ContentPanel">
-					<param name="width" value="522" />
+					<param name="width" value="400" />
 					<param name="visible" value="!Skin.HasSetting(MinimizeMainMenu)" />
 				</include>
 				<include content="ContentPanel">
@@ -1924,7 +1931,7 @@
 				<control type="fixedlist" id="9000">
 					<left>0</left>
 					<top>240</top>
-					<width>462</width>
+					<width>340</width>
 					<bottom>-10</bottom>
 					<movement>7</movement>
 					<focusposition>0</focusposition>
@@ -2075,9 +2082,9 @@
 				<control type="grouplist" id="700">
 					<orientation>horizontal</orientation>
 					<itemgap>0</itemgap>
-					<left>-8</left>
-					<width>480</width>
-					<height>110</height>
+					<left>-20</left>
+					<width>380</width>
+					<height>100</height>
 					<top>100</top>
 					<onup>SetFocus(9000,99,absolute)</onup>
 					<ondown>SetFocus(9000,0,absolute)</ondown>
@@ -2128,8 +2135,8 @@
 					<control type="image">
 						<top>140</top>
 						<left>52</left>
-						<width>40</width>
-						<height>40</height>
+						<width>52</width>
+						<height>52</height>
 						<aspectratio>keep</aspectratio>
 						<texture>icons/power.png</texture>
 						<visible>Control.HasFocus(804)</visible>
@@ -2245,8 +2252,8 @@
 					<control type="image">
 						<top>128</top>
 						<left>28</left>
-						<width>40</width>
-						<height>40</height>
+						<width>52</width>
+						<height>52</height>
 						<aspectratio>keep</aspectratio>
 						<texture>icons/power.png</texture>
 						<visible>Control.HasFocus(804)</visible>
@@ -2354,7 +2361,6 @@
 			<include content="TopBar">
 				<param name="breadcrumbs_label" value="" />
 			</include>
-			<!--
 			<control type="image">
 				<top>0</top>
 				<width>284</width>
@@ -2385,7 +2391,7 @@
 				<top>10</top>
 				<width>452</width>
 				<height>108</height>
-				<left>5</left>
+				<left>-55</left>
 				<aspectratio align="center" aligny="center">keep</aspectratio>
 				<texture fallback="fallback.png">$VAR[HomeClearLogoVar]</texture>
 				<visible>!Skin.HasSetting(HomeClearLogo)</visible>
@@ -2394,14 +2400,13 @@
 				<animation effect="slide" end="0,-115" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<animation effect="slide" end="-522,0" time="300" tween="sine" easing="out" condition="Skin.HasSetting(HideMainMenuWithWidgets) | Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 			</control>
-			-->
 			<control type="group">
 				<visible>[!Skin.HasSetting(HomeClearLogo) + String.IsEqual(Control.GetLabel(55000),fallback.png)] | Skin.HasSetting(HomeClearLogo)</visible>
 				<animation effect="fade" start="0" end="100" time="150">VisibleChange</animation>
 				<animation effect="slide" end="0,-115" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 				<animation effect="slide" end="-522,0" time="280" tween="sine" easing="out" condition="Skin.HasSetting(HideMainMenuWithWidgets) | Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 				<top>20</top>
-				<left>20</left>
+				<left>-45</left>
 				<control type="image">
 					<aspectratio>keep</aspectratio>
 					<width>56</width>
@@ -2434,23 +2439,16 @@
 					<aspectratio>keep</aspectratio>
 					<width>56</width>
 					<height>56</height>
-					<texture colordiffuse="$VAR[SkinColorVar]">icons/logo.png</texture>
-					<visible>!$EXP[ChristmasTheme] + !$EXP[HalloweenTheme] + !$EXP[EasterTheme] + !$EXP[ValentineTheme]</visible>
-				</control>
-				<control type="image">
-					<aspectratio>keep</aspectratio>
-					<width>56</width>
-					<height>56</height>
 					<texture colordiffuse="$VAR[GradientColorVar]">icons/logo-gradient.png</texture>
 					<visible>Skin.HasSetting(EnableGradientColor)</visible>
 					<visible>!$EXP[ChristmasTheme] + !$EXP[HalloweenTheme] + !$EXP[EasterTheme] + !$EXP[ValentineTheme]</visible>
 				</control>
 				<control type="image">
-					<left>40</left>
+					<left>-5</left>
 					<top>10</top>
 					<aspectratio>keep</aspectratio>
-					<width>192</width>
-					<height>36</height>
+					<width>398</width>
+					<height>74</height>
 					<texture>icons/logo-text.png</texture>
 					<visible>!Skin.HasSetting(MinimizeMainMenu)</visible>
 				</control>
@@ -2465,7 +2463,7 @@
 				<animation effect="slide" end="-95,0" time="230" tween="sine" easing="out" condition="[!Control.HasFocus(9000) + !ControlGroup(700).HasFocus] + Skin.HasSetting(HideMainMenuWithWidgets) + Skin.HasSetting(MinimizeMainMenu)">Conditional</animation>
 				<visible>[![Skin.HasSetting(HomeClearLogoMenu) + !Skin.HasSetting(HideMainMenuWithWidgets)]] | [![Skin.HasSetting(HomeClearLogoMenu) + !Skin.HasSetting(MinimizeMainMenu)]]</visible>
 				<top>20</top>
-				<left>20</left>
+				<left>-45</left>
 				<control type="image">
 					<aspectratio>keep</aspectratio>
 					<width>56</width>
@@ -2498,23 +2496,16 @@
 					<aspectratio>keep</aspectratio>
 					<width>56</width>
 					<height>56</height>
-					<texture colordiffuse="$VAR[SkinColorVar]">icons/logo.png</texture>
-					<visible>!$EXP[ChristmasTheme] + !$EXP[HalloweenTheme] + !$EXP[EasterTheme] + !$EXP[ValentineTheme]</visible>
-				</control>
-				<control type="image">
-					<aspectratio>keep</aspectratio>
-					<width>56</width>
-					<height>56</height>
 					<texture colordiffuse="$VAR[GradientColorVar]">icons/logo-gradient.png</texture>
 					<visible>Skin.HasSetting(EnableGradientColor)</visible>
 					<visible>!$EXP[ChristmasTheme] + !$EXP[HalloweenTheme] + !$EXP[EasterTheme] + !$EXP[ValentineTheme]</visible>
 				</control>
 				<control type="image">
-					<left>40</left>
+					<left>-5</left>
 					<top>10</top>
 					<aspectratio>keep</aspectratio>
-					<width>192</width>
-					<height>36</height>
+					<width>398</width>
+					<height>74</height>
 					<texture>icons/logo-text.png</texture>
 					<visible>!Skin.HasSetting(MinimizeMainMenu)</visible>
 				</control>
