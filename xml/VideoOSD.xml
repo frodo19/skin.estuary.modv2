@@ -363,5 +363,29 @@
 				</control>
 			</control>
 		</control>
+		<control type="label">
+			<left>-280</left>
+			<top>240</top>
+			<width>2500</width>
+			<height>200</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<font>font_MainMenu2</font>
+			<label>PAUSE</label>
+			<textcolor>90F1F1F1</textcolor>
+			<visible>Player.Paused</visible>
+			<animation type="Visible">
+				<effect type="fade" start="0" end="100" time="200" />
+			</animation>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" time="200" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+			<animation type="Hidden">
+				<effect type="fade" start="100" end="0" time="200" />
+			</animation>
+		</control>
 	</controls>
 </window>
