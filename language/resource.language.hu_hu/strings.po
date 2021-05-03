@@ -443,7 +443,7 @@ msgstr "Ide írja a szöveget…"
 #: /xml/Home.xml
 msgctxt "#31104"
 msgid "Your video library is currently empty. In order to populate it with your personal media, add a video source and configure it. After the source has been added and indexed you will be able to browse your library."
-msgstr "A médiatár jelenleg üres. Adjon hozzá egy médiaforrást és konfigurálja azt. Miután a forrás hozzáadásra és indexelésre került, böngészni lehet a médiatárban."
+msgstr "A médiatár jelenleg üres. A saját médiafájlok hozzáadásához, menjen a fájlok menüponthoz, adjon hozzá egy médiaforrást és konfigurálja azt. Miután a forrás hozzáadásra és beolvasásra került, böngészni lehet a médiatárban."
 
 #: /xml/Home.xml
 msgctxt "#31105"
