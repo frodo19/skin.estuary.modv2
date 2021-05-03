@@ -1175,7 +1175,7 @@ msgstr "Következő szám"
 #: /xml/SkinSettings.xml
 msgctxt "#40091"
 msgid "Show artist banner"
-msgstr "Banner muatatása"
+msgstr "Banner mutatása"
 
 #: /xml/script-cu-lrclyrics-main.xml
 msgctxt "#40092"
